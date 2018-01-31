@@ -1,6 +1,6 @@
 # customer-sample
 
-Practice table ad database interaction using https://youtube.com/watch?v=IUgstalu6zo
+Practice table and database interaction using https://youtube.com/watch?v=IUgstalu6zo
 
 > A Vue.js project
 
