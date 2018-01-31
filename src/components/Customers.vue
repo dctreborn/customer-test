@@ -9,8 +9,19 @@ export default {
   name: 'customers',
   data () {
     return {
-     
+      customers: []
     }
+  },
+  method: {
+    fetchCustomers(){
+      this.$http.get('http://slimapp/api/customers')
+      .then(function(resp){
+        console.log(resp.body);
+      });
+    }
+  },
+  created: function(){
+    this.fetchCustomers(); //issue at this line, why?
   }
 }
 </script>
