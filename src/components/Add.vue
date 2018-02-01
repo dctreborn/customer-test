@@ -53,6 +53,28 @@ export default {
     return {
         customer: {}
     }
+  },
+  methods: {
+      addCustomer(e){
+          e.preventDefault();          
+          let c = this.customer;
+
+          if(!c.name || !c.username || !c.email){
+              console.log('please fill in all required fields');
+          } else {
+              let newCustomer = {
+                  name: c.name,
+                  username: c.username,
+                  phone: c.phone,
+                  email: c.email,
+                  address: c.address,
+                  city: c.city,
+                  state: c.state
+              }
+
+            //   add post request here
+          }          
+      }
   }
 }
 </script>
