@@ -12,16 +12,16 @@ export default {
       customers: []
     }
   },
-  method: {
+  methods: {
     fetchCustomers(){
-      this.$http.get('http://slimapp/api/customers')
+      this.$http.get('https://jsonplaceholder.typicode.com/users')
       .then(function(resp){
         console.log(resp.body);
       });
     }
   },
   created: function(){
-    this.fetchCustomers(); //issue at this line, why?
+    this.fetchCustomers();
   }
 }
 </script>
