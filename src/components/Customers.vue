@@ -12,9 +12,13 @@
         </thead>
         <tbody>
           <tr v-for="customer in customers">
-            <td>{{customer.name}}</td>
+            <!-- <td>{{customer.name}}</td>
             <td>{{customer.username}}</td>
-            <td>{{customer.email}}</td>
+            <td>{{customer.email}}</td> -->
+
+            <td>{{customer.first_name}}</td>
+            <td>{{customer.last_name}}</td>
+            <td>{{customer.email}}</td>            
             <td></td>
           </tr>
         </tbody>
@@ -32,9 +36,11 @@ export default {
   },
   methods: {
     fetchCustomers(){
-      this.$http.get('https://jsonplaceholder.typicode.com/users')
+      // this.$http.get('https://jsonplaceholder.typicode.com/users')
+      this.$http.get('http://slimapp/api/customer')
       .then(function(resp){
-        this.customers = resp.body;
+        // this.customers = resp.body;
+        this.customers = JSON.parse(resp.body);
       });
     }
   },
