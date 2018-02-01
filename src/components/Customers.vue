@@ -4,8 +4,8 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Name</th>
+            <th>Username</th>
             <th>Email</th>
             <th></th>
           </tr>
