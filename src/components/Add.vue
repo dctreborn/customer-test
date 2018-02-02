@@ -4,21 +4,13 @@
       <form v-on:submit="addCustomer">
           <div class="well">
             <h4>Customer Info</h4>
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <label>Name</label>
                 <input type="text" class="form-control" placeholder="Name" v-model="customer.name">
             </div>
             <div class="form-group">
                 <label>Username</label>
                 <input type="text" class="form-control" placeholder="Username" v-model="customer.username">
-            </div> -->
-            <div class="form-group">
-                <label>First Name</label>
-                <input type="text" class="form-control" placeholder="Name" v-model="customer.first_name">
-            </div>
-            <div class="form-group">
-                <label>Last Name</label>
-                <input type="text" class="form-control" placeholder="Username" v-model="customer.last_name">
             </div>
           </div>
 
@@ -68,32 +60,19 @@ export default {
           console.log("submitted"); 
           let c = this.customer;
 
-        //   if(!c.name || !c.username || !c.email){
-            if(!c.first_name || !c.last_name || !c.email){
+          if(!c.name || !c.username || !c.email){
               console.log('please fill in all required fields');
           } else {
-            //   let newCustomer = {
-            //       name: c.name,
-            //       username: c.username,
-            //       phone: c.phone,
-            //       email: c.email,
-            //       address: c.address,
-            //       city: c.city,
-            //       state: c.state
-            //   }
-
               let newCustomer = {
-                  first_name: c.first_name,
-                  last_name: c.last_name,
+                  name: c.name,
+                  username: c.username,
                   phone: c.phone,
                   email: c.email,
                   address: c.address,
                   city: c.city,
                   state: c.state
               }
-
-            //   add post request here
-            this.$http.post('http://slimapp/api/customer/add', newCustomer)
+            this.$http.post('http://localhost:3000/0', newCustomer)
                 .then(function(resp){
                     this.$router.push({path: "/"});
                 });
