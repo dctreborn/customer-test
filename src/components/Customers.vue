@@ -14,7 +14,7 @@
           <tr v-for="customer in customers">
             <td>{{customer.name}}</td>
             <td>{{customer.username}}</td>
-            <td>{{customer.email}}</td>          -->
+            <td>{{customer.email}}</td>
             <td></td>
           </tr>
         </tbody>
