@@ -1,5 +1,7 @@
 <template>
   <div class="edit container">
+      <Alert v-if="alert" v-bind:message="alert"></Alert>
+
       <h1 class="page-header">Edit Customer</h1>
       <form v-on:submit="updateCustomer">
           <div class="well">
@@ -47,11 +49,13 @@
 </template>
 
 <script>
+   import Alert from './Alert.vue'
 export default {
   name: 'add',
   data () {
     return {
-        customer: {}
+        customer: {},
+        alert: ''
     }
   },
   methods: {
@@ -68,7 +72,7 @@ export default {
           let c = this.customer;
 
           if(!c.name || !c.username || !c.email){
-              console.log('please fill in all required fields');
+              this.alert = 'Please fill in all required fields';
           } else {
               let updateCustomer = {
                   name: c.name,
@@ -89,6 +93,9 @@ export default {
   },
   created: function () {
       this.fetchCustomer(this.$route.params.id);
+  },
+  components: {
+      Alert
   }
 }
 </script>

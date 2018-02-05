@@ -1,5 +1,7 @@
 <template>
-  <div class="about container">
+  <div class="add container">
+      <Alert v-if="alert" v-bind:message="alert"></Alert>
+
       <h1 class="page-header">Add Customer</h1>
       <form v-on:submit="addCustomer">
           <div class="well">
@@ -47,11 +49,14 @@
 </template>
 
 <script>
+    import Alert from './Alert.vue'
+
 export default {
   name: 'add',
   data () {
     return {
-        customer: {}
+        customer: {},
+        alert: ''
     }
   },
   methods: {
@@ -61,7 +66,7 @@ export default {
           let c = this.customer;
 
           if(!c.name || !c.username || !c.email){
-              console.log('please fill in all required fields');
+              this.alert = 'Please fill in all required fields';
           } else {
               let newCustomer = {
                   name: c.name,
@@ -78,6 +83,9 @@ export default {
                 });
           }          
       }
+  },
+  components: {
+      Alert
   }
 }
 </script>
