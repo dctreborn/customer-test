@@ -1,6 +1,18 @@
 <template>
   <div class="details container">
+      <router-link to="/">Back</router-link>
+
       <h1 class="page-header">{{customer.name}}</h1>
+      
+      <ul class="list-group">
+          <li class="list-group-item"><span class="glyphicon glyphicon-phone" aria-hidden="true"> {{customer.phone}}</span></li>
+          <li class="list-group-item"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> {{customer.email}}</li>
+      </ul>
+      <ul class="list-group">
+          <li class="list-group-item">{{customer.address}}</li>
+          <li class="list-group-item">{{customer.address.city}}</li>
+          <li class="list-group-item">{{customer.address.state}}</li>
+      </ul>
   </div>
 </template>
 
