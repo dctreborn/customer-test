@@ -74,7 +74,7 @@ export default {
               }
             this.$http.post('http://localhost:3000/0', newCustomer)
                 .then(function(resp){
-                    this.$router.push({path: "/"});
+                    this.$router.push({path: "/", query: {alert: 'Customer Added'}});
                 });
           }          
       }
