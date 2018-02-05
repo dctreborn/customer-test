@@ -55,6 +55,13 @@ export default {
     }
   },
   methods: {
+      fetchCustomer(id){
+          this.$http.get('http://localhost:3000/0/' + id)
+            .then(function(resp){
+                this.customer = resp.body;
+                console.log(resp.body);
+            });
+      },
       updateCustomer(e){
           e.preventDefault();         
           console.log("submitted"); 
@@ -79,6 +86,9 @@ export default {
                 });
           }          
       }
+  },
+  created: function () {
+      this.fetchCustomer(this.$route.params.id);
   }
 }
 </script>
