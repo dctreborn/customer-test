@@ -1,6 +1,6 @@
 <template>
   <div class="customers container">
-      <Alert message="test"></Alert>
+      <Alert v-if="alert" v-bind:message="alert"></Alert>
       <h1 class="page-header">Manage Customers</h1>
       <table class="table table-striped">
         <thead>
@@ -30,7 +30,8 @@ export default {
   name: 'customers',
   data () {
     return {
-      customers: []
+      customers: [],
+      alert: ''
     }
   },
   methods: {
@@ -43,6 +44,10 @@ export default {
     }
   },
   created: function(){
+    let query = this.$route.query.alert;
+    if(query){
+      this.alert = query
+    }
     this.fetchCustomers();
   },
   updated: function(){
