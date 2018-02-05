@@ -2,6 +2,8 @@
   <div class="customers container">
       <Alert v-if="alert" v-bind:message="alert"></Alert>
       <h1 class="page-header">Manage Customers</h1>
+      <input class="form-control" placeholder="Enter Name" v-model:"filterInput">
+      <hr>
       <table class="table table-striped">
         <thead>
           <tr>
