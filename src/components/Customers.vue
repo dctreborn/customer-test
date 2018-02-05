@@ -41,6 +41,9 @@ export default {
   },
   created: function(){
     this.fetchCustomers();
+  },
+  updated: function(){
+    this.fetchCustomers();
   }
 }
 </script>
