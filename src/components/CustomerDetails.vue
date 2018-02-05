@@ -3,6 +3,7 @@
       <router-link to="/">Back</router-link>
 
       <h1 class="page-header">{{customer.name}}
+          <router-link class="btn btn-primary" v-bind:to="'/edit/' + customer.id">Edit</router-link>
           <span class="pull-right"><button class="btn btn-danger" v-on:click="deleteCustomer(customer.id)">Delete</button></span>
       </h1>
       
