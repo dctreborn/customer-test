@@ -2,7 +2,9 @@
   <div class="details container">
       <router-link to="/">Back</router-link>
 
-      <h1 class="page-header">{{customer.name}}</h1>
+      <h1 class="page-header">{{customer.name}}
+          <span class="pull-right"><button class="btn btn-danger" v-on:click="deleteCustomer(customer.id)">Delete</button></span>
+      </h1>
       
       <ul class="list-group">
           <li class="list-group-item"><span class="glyphicon glyphicon-phone" aria-hidden="true"> {{customer.phone}}</span></li>
@@ -30,6 +32,14 @@ export default {
             .then(function(resp){
                 this.customer = resp.body;
                 console.log(resp.body);
+            });
+      },
+      deleteCustomer(id){
+          console.log("you deleted " + id);
+        //   add delete route when using SQL or mongo
+          this.$http.delete('http://localhost:3000/0/' + id)
+            .then(function(resp){
+                this.$router.push({path: '/', query:{alert: 'Customer Deleted'}});
             });
       }
   },
