@@ -1,5 +1,6 @@
 <template>
   <div class="customers container">
+      <Alert message="test"></Alert>
       <h1 class="page-header">Manage Customers</h1>
       <table class="table table-striped">
         <thead>
@@ -23,6 +24,8 @@
 </template>
 
 <script>
+import Alert from './Alert';
+
 export default {
   name: 'customers',
   data () {
@@ -44,6 +47,9 @@ export default {
   },
   updated: function(){
     this.fetchCustomers();
+  },
+  components: {
+    Alert
   }
 }
 </script>
