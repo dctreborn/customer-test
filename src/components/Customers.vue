@@ -2,7 +2,7 @@
   <div class="customers container">
       <Alert v-if="alert" v-bind:message="alert"></Alert>
       <h1 class="page-header">Manage Customers</h1>
-      <input class="form-control" placeholder="Enter Name" v-model:"filterInput">
+      <input class="form-control" placeholder="Enter Name" v-model="filterInput">
       <hr>
       <table class="table table-striped">
         <thead>
@@ -14,7 +14,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="customer in customers">
+          <tr v-for="customer in filterBy(customers, filterInput)">
             <td>{{customer.name}}</td>
             <td>{{customer.username}}</td>
             <td>{{customer.email}}</td>
@@ -33,7 +33,8 @@ export default {
   data () {
     return {
       customers: [],
-      alert: ''
+      alert: '',
+      filterInput:''
     }
   },
   methods: {
@@ -42,6 +43,12 @@ export default {
       .then(function(resp){
         this.customers = resp.body;
         console.log(resp.body);
+      });
+    },
+    filterBy(list, value){
+      value = value.charAt(0).toUpperCase() + value.slice(1);
+      return list.filter(function (customer) {
+        return customer.name.indexOf(value) > -1;
       });
     }
   },
