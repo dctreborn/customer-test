@@ -1,6 +1,7 @@
 <template>
   <div class="about container">
       <h1 class="page-header">About</h1>
+      <p>Customer manager app built with Vue.js and tutorial from <a href="http://www.youtube.com/watch/?v=IUgstalu6zo" target="_blank">Travesty Media</a>.</p>
   </div>
 </template>
 
